@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
-import { Button, Form, Input, InputNumber, Select, Space } from "antd";
-import { stringUtils } from "../../utils/StringUtils";
+import { Button, Form, Input, Space, InputRef } from "antd";
 
 interface IHousePriceRentRatioCalculatorForm {
   housePricePerSquareMeter: number; // 建物價值/每坪
@@ -14,6 +13,11 @@ export default function HousePriceRentRatioCalculator() {
    * 計算結果
    */
   const [result, setResult] = useState<string>("0");
+
+  /**
+   * 計算結果HTML元素
+   */
+  const resultElement = useRef<HTMLDivElement>(null);
 
   /**
    * 計算參數表單
@@ -32,8 +36,8 @@ export default function HousePriceRentRatioCalculator() {
       (housePricePerSquareMeter * rentalAreaSquareMeters) / (monthlyRent * 12);
     // 更新結果呈現
     setResult(housePriceRentRatio.toFixed(2));
-    // 回到頁首
-    window.scrollTo(0, 0);
+    // 回到標單頂部
+    resultElement.current?.focus();
   };
 
   /**
@@ -42,13 +46,13 @@ export default function HousePriceRentRatioCalculator() {
   const onFormReset = () => {
     // 重ㄓ表單
     form.resetFields();
-    // 回到頁首
-    window.scrollTo(0, 0);
+    // 回到標單頂部
+    resultElement.current?.focus();
   };
 
   return (
     <div className="d-flex flex-column overflow-x-hidden">
-      <h2>房價租金比：{result}</h2>
+      <h2 ref={resultElement}>房價租金比：{result}</h2>
       <Form<IHousePriceRentRatioCalculatorForm>
         form={form}
         name="house-price-rent-ratio-calculator-form"
@@ -65,12 +69,13 @@ export default function HousePriceRentRatioCalculator() {
             },
           ]}
         >
-          <InputNumber
-            className="w-100"
+          <Input
+            type="number"
+            pattern="number"
             min={1}
             variant="filled"
             addonAfter="$"
-          />
+          ></Input>
         </Form.Item>
         <Form.Item
           label="租處坪數"
@@ -82,7 +87,12 @@ export default function HousePriceRentRatioCalculator() {
             },
           ]}
         >
-          <InputNumber className="w-100" min={1} variant="filled" />
+          <Input
+            type="number"
+            pattern="number"
+            min={1}
+            variant="filled"
+          ></Input>
         </Form.Item>
         <Form.Item
           label="租處租金/每月"
@@ -94,20 +104,21 @@ export default function HousePriceRentRatioCalculator() {
             },
           ]}
         >
-          <InputNumber
-            className="w-100"
+          <Input
+            type="number"
+            pattern="number"
             min={1}
             variant="filled"
             addonAfter="$"
-          />
+          ></Input>
         </Form.Item>
       </Form>
       <Form.Item wrapperCol={{ span: 16 }}>
         <Space>
-          <Button type="primary" onClick={() => form.submit()}>
+          <Button type="primary" onClick={form.submit}>
             提交
           </Button>
-          <Button htmlType="button" onClick={() => onFormReset}>
+          <Button htmlType="button" onClick={onFormReset}>
             重置
           </Button>
         </Space>
