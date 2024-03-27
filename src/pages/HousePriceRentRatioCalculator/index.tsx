@@ -15,9 +15,9 @@ export default function HousePriceRentRatioCalculator() {
   const onFormSubmit = (values: IHousePriceRentRatioCalculatorForm) => {
     const { housePricePerSquareMeter, rentalAreaSquareMeters, monthlyRent } =
       values;
-    const newResult =
+    const housePriceRentRatio =
       (housePricePerSquareMeter * rentalAreaSquareMeters) / (monthlyRent * 12);
-    setResult(newResult.toFixed(2));
+    setResult(housePriceRentRatio.toFixed(2));
   };
 
   return (
