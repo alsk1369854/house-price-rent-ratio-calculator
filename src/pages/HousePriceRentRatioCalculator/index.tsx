@@ -71,7 +71,7 @@ export default function HousePriceRentRatioCalculator() {
         >
           <Input
             type="number"
-            pattern="number"
+            pattern="[0-9]*"
             min={1}
             variant="filled"
             addonAfter="$"
@@ -89,7 +89,7 @@ export default function HousePriceRentRatioCalculator() {
         >
           <Input
             type="number"
-            pattern="number"
+            pattern="[0-9]*"
             min={1}
             variant="filled"
           ></Input>
@@ -106,7 +106,7 @@ export default function HousePriceRentRatioCalculator() {
         >
           <Input
             type="number"
-            pattern="number"
+            pattern="[0-9]*"
             min={1}
             variant="filled"
             addonAfter="$"
