@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/house-price-rent-ratio-calculator/static/css/main.7e594b48.css",
-    "main.js": "/house-price-rent-ratio-calculator/static/js/main.cc3761ca.js",
+    "main.css": "/house-price-rent-ratio-calculator/static/css/main.bc09d13f.css",
+    "main.js": "/house-price-rent-ratio-calculator/static/js/main.d42e24c7.js",
     "static/js/453.ada308c2.chunk.js": "/house-price-rent-ratio-calculator/static/js/453.ada308c2.chunk.js",
     "index.html": "/house-price-rent-ratio-calculator/index.html",
-    "main.7e594b48.css.map": "/house-price-rent-ratio-calculator/static/css/main.7e594b48.css.map",
-    "main.cc3761ca.js.map": "/house-price-rent-ratio-calculator/static/js/main.cc3761ca.js.map",
+    "main.bc09d13f.css.map": "/house-price-rent-ratio-calculator/static/css/main.bc09d13f.css.map",
+    "main.d42e24c7.js.map": "/house-price-rent-ratio-calculator/static/js/main.d42e24c7.js.map",
     "453.ada308c2.chunk.js.map": "/house-price-rent-ratio-calculator/static/js/453.ada308c2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7e594b48.css",
-    "static/js/main.cc3761ca.js"
+    "static/css/main.bc09d13f.css",
+    "static/js/main.d42e24c7.js"
   ]
 }
