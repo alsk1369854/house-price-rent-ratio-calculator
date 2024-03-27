@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-import { Button, Form, Input, Space, InputRef } from "antd";
+import { Button, Form, InputNumber, Space } from "antd";
 
 interface IHousePriceRentRatioCalculatorForm {
   housePricePerSquareMeter: number; // 建物價值/每坪
@@ -44,15 +44,18 @@ export default function HousePriceRentRatioCalculator() {
    * 表單重置事件
    */
   const onFormReset = () => {
-    // 重ㄓ表單
+    // 重置表單
     form.resetFields();
+    setResult("0");
     // 回到標單頂部
     resultElement.current?.focus();
   };
 
   return (
     <div className="d-flex flex-column overflow-x-hidden">
-      <h2 ref={resultElement}>房價租金比：{result}</h2>
+      <h2 ref={resultElement} tabIndex={-1}>
+        房價租金比：{result}
+      </h2>
       <Form<IHousePriceRentRatioCalculatorForm>
         form={form}
         name="house-price-rent-ratio-calculator-form"
@@ -69,13 +72,13 @@ export default function HousePriceRentRatioCalculator() {
             },
           ]}
         >
-          <Input
+          <InputNumber
             type="number"
             pattern="[0-9]*"
             min={1}
             variant="filled"
             addonAfter="$"
-          ></Input>
+          ></InputNumber>
         </Form.Item>
         <Form.Item
           label="租處坪數"
@@ -87,12 +90,13 @@ export default function HousePriceRentRatioCalculator() {
             },
           ]}
         >
-          <Input
+          <InputNumber
             type="number"
+            className="w-100"
             pattern="[0-9]*"
             min={1}
             variant="filled"
-          ></Input>
+          ></InputNumber>
         </Form.Item>
         <Form.Item
           label="租處租金/每月"
@@ -104,13 +108,13 @@ export default function HousePriceRentRatioCalculator() {
             },
           ]}
         >
-          <Input
+          <InputNumber
             type="number"
             pattern="[0-9]*"
             min={1}
             variant="filled"
             addonAfter="$"
-          ></Input>
+          ></InputNumber>
         </Form.Item>
       </Form>
       <Form.Item wrapperCol={{ span: 16 }}>
