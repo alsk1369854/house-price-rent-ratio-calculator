@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/house-price-rent-ratio-calculator/static/css/main.f855e6bc.css",
+    "main.js": "/house-price-rent-ratio-calculator/static/js/main.6e570e19.js",
+    "static/js/453.ada308c2.chunk.js": "/house-price-rent-ratio-calculator/static/js/453.ada308c2.chunk.js",
+    "static/media/logo.svg": "/house-price-rent-ratio-calculator/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/house-price-rent-ratio-calculator/index.html",
+    "main.f855e6bc.css.map": "/house-price-rent-ratio-calculator/static/css/main.f855e6bc.css.map",
+    "main.6e570e19.js.map": "/house-price-rent-ratio-calculator/static/js/main.6e570e19.js.map",
+    "453.ada308c2.chunk.js.map": "/house-price-rent-ratio-calculator/static/js/453.ada308c2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.6e570e19.js"
+  ]
+}
