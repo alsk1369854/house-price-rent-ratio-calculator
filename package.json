@@ -1,8 +1,8 @@
 {
-  "name": "house-price-rent-ratio-calculator",
+  "name": "ming-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alsk1369854.github.io/house-price-rent-ratio-calculator",
+  "homepage": "https://alsk1369854.github.io/ming-calculator",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
