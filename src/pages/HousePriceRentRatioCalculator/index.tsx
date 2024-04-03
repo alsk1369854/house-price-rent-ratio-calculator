@@ -20,10 +20,10 @@ export default function HousePriceRentRatioCalculator() {
    */
   const [result, setResult] = useState<string>("0");
 
-  /**
-   * 計算結果 div 元素
-   */
-  const resultElement = useRef<HTMLDivElement>(null);
+  // /**
+  //  * 計算結果 div 元素
+  //  */
+  // const resultElement = useRef<HTMLDivElement>(null);
 
   /**
    * 表單第一項 input 元素
@@ -48,7 +48,7 @@ export default function HousePriceRentRatioCalculator() {
     // 更新結果呈現
     setResult(housePriceRentRatio.toFixed(2));
     // 回到標單頂部
-    resultElement.current?.focus();
+    // resultElement.current?.focus();
   };
 
   /**
@@ -63,10 +63,10 @@ export default function HousePriceRentRatioCalculator() {
   };
 
   return (
-    <div className="p-8">
+    <div className="border-2 rounded-lg p-4 m-4">
       <div
-        ref={resultElement}
-        tabIndex={-1}
+        // ref={resultElement}
+        // tabIndex={-1}
         className="font-bold text-xl dark:text-white"
       >
         房價租金比：{result}
@@ -143,7 +143,7 @@ export default function HousePriceRentRatioCalculator() {
           ></InputNumber>
         </Form.Item>
       </Form>
-      <Form.Item>
+      <Form.Item className="mb-1">
         <Space
           size="large"
           direction="horizontal"
