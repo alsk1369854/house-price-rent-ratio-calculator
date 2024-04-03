@@ -11,10 +11,9 @@ export type SetThemeTypeAction = React.Dispatch<
 >;
 type ThemeTypeState = [ThemeType, SetThemeTypeAction];
 
-export const useThemeType = (initThemeType?: ThemeType): ThemeTypeState => {
-  if (!initThemeType) {
-    initThemeType = isOSThemeOnDark() ? "dark" : "light";
-  }
-  const [themeType, setThemeType] = useState<ThemeType>(initThemeType);
-  return [themeType, setThemeType];
+export const useThemeHook = (): ThemeTypeState => {
+  const [theme, setTheme] = useState<ThemeType>(
+    isOSThemeOnDark() ? "dark" : "light"
+  );
+  return [theme, setTheme];
 };
