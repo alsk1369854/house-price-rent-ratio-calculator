@@ -9,22 +9,20 @@ import { ICalculatorSelectOption } from "./components/CalculatorSelect/interface
 
 const routeConfigs: IRouteConfig[] = [
   {
+    label: "房價租金比計算機",
     path: "/",
     // path: "house-price-rent-ratio-calculator",
     element: (
       <HousePriceRentRatioCalculator className="px-4"></HousePriceRentRatioCalculator>
     ),
-    label: "房價租金比計算機",
   },
 ];
 
 const calculatorSelectOptions: ICalculatorSelectOption[] = routeConfigs.map(
-  ({ path, label }) => {
-    return {
-      value: path,
-      label,
-    };
-  }
+  ({ path, label }) => ({
+    value: path,
+    label,
+  })
 );
 
 function App() {
