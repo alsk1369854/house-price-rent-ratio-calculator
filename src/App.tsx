@@ -37,8 +37,8 @@ function App() {
           calculatorSelectOptions={calculatorSelectOptions}
         ></Header>
         <Routes>
-          {routeConfigs.map((config, index) => (
-            <Route key={index} {...config}></Route>
+          {routeConfigs.map((config) => (
+            <Route key={config.path} {...config}></Route>
           ))}
         </Routes>
       </ThemeProvider>
