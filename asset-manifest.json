@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ming-calculator/static/css/main.6e745640.css",
-    "main.js": "/ming-calculator/static/js/main.79c9b654.js",
+    "main.css": "/ming-calculator/static/css/main.4cffb5e6.css",
+    "main.js": "/ming-calculator/static/js/main.e44150f3.js",
     "static/js/453.917e4ea0.chunk.js": "/ming-calculator/static/js/453.917e4ea0.chunk.js",
     "index.html": "/ming-calculator/index.html",
-    "main.6e745640.css.map": "/ming-calculator/static/css/main.6e745640.css.map",
-    "main.79c9b654.js.map": "/ming-calculator/static/js/main.79c9b654.js.map",
+    "main.4cffb5e6.css.map": "/ming-calculator/static/css/main.4cffb5e6.css.map",
+    "main.e44150f3.js.map": "/ming-calculator/static/js/main.e44150f3.js.map",
     "453.917e4ea0.chunk.js.map": "/ming-calculator/static/js/453.917e4ea0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6e745640.css",
-    "static/js/main.79c9b654.js"
+    "static/css/main.4cffb5e6.css",
+    "static/js/main.e44150f3.js"
   ]
 }
