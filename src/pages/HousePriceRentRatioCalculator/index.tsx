@@ -63,10 +63,14 @@ export default function HousePriceRentRatioCalculator() {
   };
 
   return (
-    <div className="d-flex flex-column overflow-x-hidden">
-      <h1 ref={resultElement} tabIndex={-1}>
+    <div className="p-8">
+      <div
+        ref={resultElement}
+        tabIndex={-1}
+        className="font-bold text-xl dark:text-white"
+      >
         房價租金比：{result}
-      </h1>
+      </div>
       <Form<IHousePriceRentRatioCalculatorForm>
         form={form}
         name="house-price-rent-ratio-calculator-form"
@@ -74,6 +78,7 @@ export default function HousePriceRentRatioCalculator() {
         scrollToFirstError={true}
         layout="vertical"
         onFinish={onFormSubmit}
+        className="flex flex-col"
       >
         <Form.Item
           label="建物價值/每坪"
@@ -86,7 +91,7 @@ export default function HousePriceRentRatioCalculator() {
           ]}
         >
           <InputNumber
-            className="w-100"
+            className="w-full"
             ref={firstFormInputElement}
             pattern="[0-9]*"
             formatter={(value) => accountFormatter.formatter(value ?? "")}
@@ -107,7 +112,7 @@ export default function HousePriceRentRatioCalculator() {
           ]}
         >
           <InputNumber
-            className="w-100"
+            className="w-full"
             type="number"
             pattern="number"
             formatter={(value) => `${value}`.replace(/[^\d.]/g, "")}
@@ -128,7 +133,7 @@ export default function HousePriceRentRatioCalculator() {
           ]}
         >
           <InputNumber
-            className="w-100"
+            className="w-full"
             pattern="[0-9]*"
             formatter={(value) => accountFormatter.formatter(value ?? "")}
             parser={(value) => accountFormatter.parser(value ?? "")}
@@ -139,7 +144,11 @@ export default function HousePriceRentRatioCalculator() {
         </Form.Item>
       </Form>
       <Form.Item>
-        <Space size="large">
+        <Space
+          size="large"
+          direction="horizontal"
+          className="w-full justify-center"
+        >
           <Button type="primary" size="large" onClick={form.submit}>
             提交
           </Button>

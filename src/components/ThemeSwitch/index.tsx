@@ -23,9 +23,7 @@ const ThemeSwitch: React.FC<IThemeSwitchProps> = (props) => {
 
   return (
     <div className="flex justify-end pt-8 pr-8">
-      <div className="font-bold text-xl mr-2 dark:text-white">
-        Theme switch:
-      </div>
+      <div className="font-bold text-xl mr-2 dark:text-white">樣式切換:</div>
       <Switch
         className="mt-1"
         checkedChildren={<SunOutlined />}
