@@ -1,13 +1,20 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 
 import { Button, Form, InputNumber, Space } from "antd";
 import { formatterUtils } from "../../utils/FormatterUtils/FormatterUtils";
 import { IHousePriceRentRatioCalculatorForm } from "./interfaces/IHousePriceRentRatioCalculatorForm";
+import { useIsFirstRender } from "../../hooks/useIsFirstRender";
 
 /**
  * 會計數字格式化器
  */
 const accountFormatter = formatterUtils.getAccountingFormatter();
+
+const initialValues: IHousePriceRentRatioCalculatorForm = {
+  housePricePerSquareMeter: 175_000,
+  rentalAreaSquareMeters: 4.5,
+  monthlyRent: 6_500,
+};
 
 interface IHousePriceRentRatioCalculatorProps {
   className?: string;
@@ -15,18 +22,13 @@ interface IHousePriceRentRatioCalculatorProps {
 
 const HousePriceRentRatioCalculator: React.FC<
   IHousePriceRentRatioCalculatorProps
-> = (props) => {
-  const { className } = props;
+> = ({ className }) => {
+  const isFirstRender = useIsFirstRender();
 
   /**
    * 計算結果
    */
   const [result, setResult] = useState<string>("0");
-
-  /**
-   * 表單第一項 input 元素
-   */
-  const firstFormInputElement = useRef<HTMLInputElement>(null);
 
   /**
    * 計算參數表單
@@ -54,8 +56,6 @@ const HousePriceRentRatioCalculator: React.FC<
     // 重置表單
     form.resetFields();
     setResult("0");
-    // 回到標單頂部
-    firstFormInputElement.current?.focus();
   };
 
   return (
@@ -72,6 +72,7 @@ const HousePriceRentRatioCalculator: React.FC<
           layout="vertical"
           onFinish={onFormSubmit}
           className="flex flex-col"
+          initialValues={isFirstRender ? initialValues : undefined}
         >
           <Form.Item
             label="建物價值/每坪"
@@ -85,10 +86,11 @@ const HousePriceRentRatioCalculator: React.FC<
           >
             <InputNumber
               className="w-full"
-              ref={firstFormInputElement}
               pattern="[0-9]*"
-              formatter={(value) => accountFormatter.formatter(value ?? "")}
-              parser={(value) => accountFormatter.parser(value ?? "")}
+              formatter={(value) =>
+                accountFormatter.formatter(`${value ?? ""}`)
+              }
+              parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
               min={1 as number}
               variant="filled"
               addonAfter="元"
@@ -106,10 +108,11 @@ const HousePriceRentRatioCalculator: React.FC<
           >
             <InputNumber
               className="w-full"
-              type="number"
               pattern="number"
-              formatter={(value) => `${value}`.replace(/[^\d.]/g, "")}
-              parser={(value) => +value!}
+              formatter={(value) =>
+                accountFormatter.formatter(`${value ?? ""}`)
+              }
+              parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
               min={1 as number}
               variant="filled"
               addonAfter="坪"
@@ -128,8 +131,10 @@ const HousePriceRentRatioCalculator: React.FC<
             <InputNumber
               className="w-full"
               pattern="[0-9]*"
-              formatter={(value) => accountFormatter.formatter(value ?? "")}
-              parser={(value) => accountFormatter.parser(value ?? "")}
+              formatter={(value) =>
+                accountFormatter.formatter(`${value ?? ""}`)
+              }
+              parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
               min={1 as number}
               variant="filled"
               addonAfter="元"

@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import { CalculatorPathType } from "../types/CalculatorPathType";
 
-export interface IRouteConfig {
+export interface IRouteConfig<D = {}> {
   path: CalculatorPathType;
   element: ReactNode;
-  label: string;
+  data?: D;
 }

@@ -1,4 +1,4 @@
 export interface AccountingFormatter {
-  formatter(value: string | number): string;
+  formatter(value: string): string;
   parser(value: string): number;
 }
