@@ -26,11 +26,13 @@ const columns: TableColumnsType<IDataType> = [
     title: "標籤",
     dataIndex: "tag",
     align: "center",
+    width: 75,
   },
   {
     title: "說明",
     dataIndex: "popconfirm",
     align: "center",
+    width: 45,
   },
 ];
 

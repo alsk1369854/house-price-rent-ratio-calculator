@@ -86,7 +86,7 @@ const HousePriceRentRatioCalculator: React.FC<
           >
             <InputNumber
               className="w-full"
-              pattern="[0-9]*"
+              inputMode="decimal"
               formatter={(value) =>
                 accountFormatter.formatter(`${value ?? ""}`)
               }
@@ -108,7 +108,7 @@ const HousePriceRentRatioCalculator: React.FC<
           >
             <InputNumber
               className="w-full"
-              pattern="number"
+              inputMode="decimal"
               formatter={(value) =>
                 accountFormatter.formatter(`${value ?? ""}`)
               }
@@ -130,7 +130,7 @@ const HousePriceRentRatioCalculator: React.FC<
           >
             <InputNumber
               className="w-full"
-              pattern="[0-9]*"
+              inputMode="decimal"
               formatter={(value) =>
                 accountFormatter.formatter(`${value ?? ""}`)
               }
