@@ -12,14 +12,14 @@ const routeConfigs: IRouteConfig<{ label: string }>[] = [
   {
     path: "/",
     // path: "house-price-rent-ratio",
-    element: <HousePriceRentRatioCalculator className="px-4" />,
+    element: <HousePriceRentRatioCalculator className="px-10" />,
     data: {
       label: "房價租金比",
     },
   },
   {
     path: "project-management-earned-value",
-    element: <ProjectManagementEarnedValueCalculator className="px-4" />,
+    element: <ProjectManagementEarnedValueCalculator className="px-10" />,
     data: {
       label: "專案管理-掙值",
     },
