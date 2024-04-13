@@ -1,3 +1,4 @@
+import { AccountBookOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import React, { useState } from "react";
 
@@ -27,7 +28,7 @@ const FloatMenu: React.FC<IFloatMenuProps> = () => {
   });
 
   return (
-    <div className="fixed z-50 top-16 left-0 h-screen dark:text-white">
+    <div className="fixed z-50 top-20 left-0 h-screen dark:text-white">
       <div className="flex items-top justify-center">
         <div className={contentClassName}>
           <iframe
@@ -38,14 +39,10 @@ const FloatMenu: React.FC<IFloatMenuProps> = () => {
         </div>
         <Button
           type="primary"
-          className="flex items-center justify-center w-12 h-24 text-lg"
-          style={{
-            writingMode: "vertical-lr",
-          }}
+          className="ml-1"
+          icon={<AccountBookOutlined />}
           onClick={() => setShow(!show)}
-        >
-          實價登入
-        </Button>
+        ></Button>
       </div>
       {/* <div className={` ${show ? "w-full h-full" : "w-0 h-0"}`}>
         <Button
