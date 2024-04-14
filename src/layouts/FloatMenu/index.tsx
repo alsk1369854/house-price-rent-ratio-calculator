@@ -1,14 +1,12 @@
-import { AccountBookOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import React, { useState } from "react";
 
-type IFloatMenuProps = {};
-
-type IClassNamesObject = {
-  [_key in string]: boolean;
+type IClassNamesConfig = {
+  [_className in string]: boolean;
 };
-function createClassNames(obj: IClassNamesObject) {
-  return Object.entries(obj).reduce((classNames, [className, enable]) => {
+function createClassNames(config: IClassNamesConfig) {
+  return Object.entries(config).reduce((classNames, [className, enable]) => {
     if (enable) {
       return `${classNames} ${className}`;
     }
@@ -16,50 +14,42 @@ function createClassNames(obj: IClassNamesObject) {
   }, "");
 }
 
+type IFloatMenuProps = {};
+
 const FloatMenu: React.FC<IFloatMenuProps> = () => {
   const [show, setShow] = useState<boolean>(false);
-  const contentClassName = createClassNames({
-    "transition-all": true,
-    "duration-150": true,
-    "ease-in-out": true,
-    "h-96": true,
-    "w-80": show,
-    "w-0": !show,
-  });
+
+  const getClassName = (show: boolean) => {
+    return createClassNames({
+      "transition-all": true,
+      "duration-150": true,
+      "ease-in-out": true,
+      "rounded-r-lg": show,
+      "border-gray-400": show,
+      "border-t": show,
+      "border-r": show,
+      "border-b": show,
+      "h-96": true,
+      "w-80": show,
+      "w-0": !show,
+    });
+  };
 
   return (
     <div className="fixed z-50 top-20 left-0 h-screen dark:text-white">
       <div className="flex items-top justify-center">
-        <div className={contentClassName}>
-          <iframe
-            title="float-menu-item-0"
-            src="https://www.leju.com.tw/page_search_result?city=E"
-            className="w-full h-full"
-          ></iframe>
-        </div>
+        <iframe
+          title="float-menu-item-0"
+          src="https://www.leju.com.tw/page_search_result?city=E"
+          className={getClassName(show)}
+        ></iframe>
         <Button
           type="primary"
           className="ml-1"
-          icon={<AccountBookOutlined />}
+          icon={<SearchOutlined />}
           onClick={() => setShow(!show)}
         ></Button>
       </div>
-      {/* <div className={` ${show ? "w-full h-full" : "w-0 h-0"}`}>
-        <Button
-          className={`transition-all ease-in-out duration-700 absolute top-40 ${
-            show ? "right-0" : "left-0"
-          }`}
-          type="primary"
-          onClick={() => setShow(!show)}
-        >
-          {show ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        </Button>
-
-        <iframe
-          src="https://www.leju.com.tw/page_search_result?city=E"
-          className="w-full h-full"
-        ></iframe>
-      </div> */}
     </div>
   );
 };
