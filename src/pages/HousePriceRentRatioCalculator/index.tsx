@@ -61,7 +61,7 @@ const HousePriceRentRatioCalculator: React.FC<
 
   return (
     <div className={className}>
-      <FloatMenu></FloatMenu>
+      {/* <FloatMenu></FloatMenu> */}
       <div className="border-2 rounded-lg p-4">
         <div className="font-bold text-xl dark:text-white">
           房價租金比：{result}
