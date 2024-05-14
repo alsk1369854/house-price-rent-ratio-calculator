@@ -114,9 +114,7 @@ const ProjectManagementEarnedValueCalculator: React.FC<
             <InputNumber
               className="w-full"
               inputMode="decimal"
-              formatter={(value) =>
-                accountFormatter.formatter(`${value ?? ""}`)
-              }
+              formatter={(value) => accountFormatter.formatter(value ?? 0)}
               parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
               min={1 as number}
               variant="filled"
@@ -136,9 +134,7 @@ const ProjectManagementEarnedValueCalculator: React.FC<
             <InputNumber
               className="w-full"
               inputMode="decimal"
-              formatter={(value) =>
-                accountFormatter.formatter(`${value ?? ""}`)
-              }
+              formatter={(value) => accountFormatter.formatter(value ?? 0)}
               parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
               min={1 as number}
               variant="filled"
@@ -158,9 +154,7 @@ const ProjectManagementEarnedValueCalculator: React.FC<
             <InputNumber
               className="w-full"
               inputMode="decimal"
-              formatter={(value) =>
-                accountFormatter.formatter(`${value ?? ""}`)
-              }
+              formatter={(value) => accountFormatter.formatter(value ?? 0)}
               parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
               min={1 as number}
               variant="filled"
@@ -180,9 +174,7 @@ const ProjectManagementEarnedValueCalculator: React.FC<
             <InputNumber
               className="w-full"
               inputMode="decimal"
-              formatter={(value) =>
-                accountFormatter.formatter(`${value ?? ""}`)
-              }
+              formatter={(value) => accountFormatter.formatter(value ?? 0)}
               parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
               min={1 as number}
               variant="filled"
@@ -202,9 +194,7 @@ const ProjectManagementEarnedValueCalculator: React.FC<
             <InputNumber
               className="w-full"
               inputMode="decimal"
-              formatter={(value) =>
-                accountFormatter.formatter(`${value ?? ""}`)
-              }
+              formatter={(value) => accountFormatter.formatter(value ?? 0)}
               parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
               min={1 as number}
               variant="filled"

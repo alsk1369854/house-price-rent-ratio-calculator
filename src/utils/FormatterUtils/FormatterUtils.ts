@@ -2,16 +2,14 @@ import { AccountingFormatter } from "./interfaces/AccountingFormatter";
 
 class FormatterUtils {
   public getAccountingFormatter(): AccountingFormatter {
+    const format = new Intl.NumberFormat("zh-tw", { maximumFractionDigits: 2 });
+
     return {
-      formatter: (value) => {
-        value = value.replace(/[^\d.]/g, "");
-        let [intStr, floatStr] = value.split(".");
-        intStr = intStr.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        floatStr = floatStr ? `.${floatStr.replace(/\./g, "")}` : "";
-        return `${intStr}${floatStr}`;
+      formatter: (value: number): string => {
+        return format.format(value);
       },
-      parser: (value) => {
-        return +value.replace(/\$\s?|,/g, "");
+      parser: (value: string): number => {
+        return Number.parseInt(value.replace(/\s?|,/g, ""));
       },
     };
   }

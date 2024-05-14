@@ -53,32 +53,34 @@ const ProjectManagementEarnedValueCalculatorResultModal: React.FC<
 
   if (!result) return <></>;
 
-  const dataSource: IDataType[] = Object.entries(result).map(([key, value]) => {
-    const material = tableUtils.getDataDisplayMaterial(
-      key as keyof IProjectManagementEarnedValueCalculatorResult,
-      value
-    );
-    return {
-      key: key,
-      name: material.name,
-      value: accountFormatter.formatter(value.toFixed(2)),
-      tag: material.tag ? (
-        <Tag color={material.tag.color}>{material.tag.text}</Tag>
-      ) : (
-        <></>
-      ),
-      popconfirm: (
-        <Popconfirm
-          placement="bottomLeft"
-          title={material.popconfirm.title}
-          description={material.popconfirm.description}
-          showCancel={false}
-        >
-          <Button size="small" shape="circle" icon={<InfoOutlined />} />
-        </Popconfirm>
-      ),
-    };
-  });
+  const dataSource: IDataType[] = Object.entries(result).map(
+    ([key, value]: [string, number]) => {
+      const material = tableUtils.getDataDisplayMaterial(
+        key as keyof IProjectManagementEarnedValueCalculatorResult,
+        value
+      );
+      return {
+        key: key,
+        name: material.name,
+        value: accountFormatter.formatter(value),
+        tag: material.tag ? (
+          <Tag color={material.tag.color}>{material.tag.text}</Tag>
+        ) : (
+          <></>
+        ),
+        popconfirm: (
+          <Popconfirm
+            placement="bottomLeft"
+            title={material.popconfirm.title}
+            description={material.popconfirm.description}
+            showCancel={false}
+          >
+            <Button size="small" shape="circle" icon={<InfoOutlined />} />
+          </Popconfirm>
+        ),
+      };
+    }
+  );
 
   return (
     <Modal

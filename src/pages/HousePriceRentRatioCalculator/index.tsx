@@ -4,7 +4,6 @@ import { Button, Form, InputNumber, Space } from "antd";
 import { formatterUtils } from "../../utils/FormatterUtils/FormatterUtils";
 import { IHousePriceRentRatioCalculatorForm } from "./interfaces/IHousePriceRentRatioCalculatorForm";
 import { useIsFirstRender } from "../../hooks/useIsFirstRender";
-import FloatMenu from "../../layouts/FloatMenu";
 
 /**
  * 會計數字格式化器
@@ -89,9 +88,7 @@ const HousePriceRentRatioCalculator: React.FC<
             <InputNumber
               className="w-full"
               inputMode="decimal"
-              formatter={(value) =>
-                accountFormatter.formatter(`${value ?? ""}`)
-              }
+              formatter={(value) => accountFormatter.formatter(value ?? 0)}
               parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
               min={1 as number}
               variant="filled"
@@ -111,9 +108,7 @@ const HousePriceRentRatioCalculator: React.FC<
             <InputNumber
               className="w-full"
               inputMode="decimal"
-              formatter={(value) =>
-                accountFormatter.formatter(`${value ?? ""}`)
-              }
+              formatter={(value) => accountFormatter.formatter(value ?? 0)}
               parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
               min={1 as number}
               variant="filled"
@@ -133,9 +128,7 @@ const HousePriceRentRatioCalculator: React.FC<
             <InputNumber
               className="w-full"
               inputMode="decimal"
-              formatter={(value) =>
-                accountFormatter.formatter(`${value ?? ""}`)
-              }
+              formatter={(value) => accountFormatter.formatter(value ?? 0)}
               parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
               min={1 as number}
               variant="filled"
