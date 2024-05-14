@@ -5,7 +5,7 @@ export interface IDataDisplayMaterial {
     text: string;
   };
   popconfirm: {
-    title: string;
-    description: string;
+    title: React.ReactNode;
+    description: React.ReactNode;
   };
 }

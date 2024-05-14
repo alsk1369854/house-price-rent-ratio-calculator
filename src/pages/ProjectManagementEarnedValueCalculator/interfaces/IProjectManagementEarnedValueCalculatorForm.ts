@@ -1,6 +1,8 @@
 export interface IProjectManagementEarnedValueCalculatorForm {
   // 完工總預算
   budgetAtCompletion: number;
+  // 計畫完工天數
+  plannedCompletionDays: number;
   // 預期單位成本
   estimatedUnitCost: number;
   // 預期進度

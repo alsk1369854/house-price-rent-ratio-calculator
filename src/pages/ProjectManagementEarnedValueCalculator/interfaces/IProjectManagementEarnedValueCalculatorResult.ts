@@ -25,4 +25,8 @@ export interface IProjectManagementEarnedValueCalculatorResult {
   done: number;
   // 剩餘的工作價值 = BAC - EV
   fcst: number;
+  // 預期總工期
+  estimatedTotalConstructionPeriod: number;
+  // 後期工期
+  lateConstructionPeriod: number;
 }

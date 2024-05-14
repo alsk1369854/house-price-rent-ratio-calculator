@@ -13,6 +13,7 @@ const accountFormatter = formatterUtils.getAccountingFormatter();
 
 const initialValues: IProjectManagementEarnedValueCalculatorForm = {
   budgetAtCompletion: 10_000,
+  plannedCompletionDays: 10,
   estimatedProgress: 50,
   estimatedUnitCost: 100,
   actualProgress: 40,
@@ -48,24 +49,30 @@ const ProjectManagementEarnedValueCalculator: React.FC<
   ) => {
     const {
       budgetAtCompletion: bac,
+      plannedCompletionDays,
       actualUnitCost,
       actualProgress,
       estimatedUnitCost,
       estimatedProgress,
     } = values;
+    // 完工總進度
+    const totalProgressAtCompetition = bac / estimatedUnitCost;
+    const actualProgressDays =
+      (actualProgress / totalProgressAtCompetition) * plannedCompletionDays;
 
     const pv = estimatedUnitCost * estimatedProgress;
     const ev = estimatedUnitCost * actualProgress;
     const ac = actualUnitCost * actualProgress;
     const cpi = ev / ac;
     const eac = bac / cpi;
+    const spi = ev / pv;
     const result: IProjectManagementEarnedValueCalculatorResult = {
       plannendValue: pv,
       earnedValue: ev,
       actualCost: ac,
       scheduleVariance: ev - pv,
       costVariance: ev - ac,
-      schedulePerformedIndex: ev / pv,
+      schedulePerformedIndex: spi,
       costPerformedIndex: cpi,
       budgetAtCompletion: bac,
       estimateAtCompletion: eac,
@@ -73,6 +80,9 @@ const ProjectManagementEarnedValueCalculator: React.FC<
       varianceAtCompletion: bac - eac,
       done: ev / bac,
       fcst: bac - ev,
+      estimatedTotalConstructionPeriod: plannedCompletionDays / spi,
+      lateConstructionPeriod:
+        (plannedCompletionDays - actualProgressDays) / spi,
     };
     setResult(result);
   };
@@ -119,6 +129,26 @@ const ProjectManagementEarnedValueCalculator: React.FC<
               min={1 as number}
               variant="filled"
               addonAfter="元"
+            ></InputNumber>
+          </Form.Item>
+          <Form.Item<IProjectManagementEarnedValueCalculatorForm>
+            label="計畫完工天數"
+            name="plannedCompletionDays"
+            rules={[
+              {
+                required: true,
+                message: "必填",
+              },
+            ]}
+          >
+            <InputNumber
+              className="w-full"
+              inputMode="decimal"
+              formatter={(value) => accountFormatter.formatter(value ?? 0)}
+              parser={(value) => accountFormatter.parser(`${value ?? ""}`)}
+              min={1 as number}
+              variant="filled"
+              addonAfter="天"
             ></InputNumber>
           </Form.Item>
           <Form.Item<IProjectManagementEarnedValueCalculatorForm>

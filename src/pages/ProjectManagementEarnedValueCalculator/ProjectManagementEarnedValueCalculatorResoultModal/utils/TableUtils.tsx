@@ -56,11 +56,11 @@ class TableUtils {
             value > 0
               ? {
                   color: "green",
-                  text: "有效率",
+                  text: "花費有節制",
                 }
               : {
                   color: "red",
-                  text: "沒效率",
+                  text: "增加了開銷",
                 },
           popconfirm: {
             title: "成本變異(Cost Variance, CV)",
@@ -116,7 +116,16 @@ class TableUtils {
           name: "完工成本預估值\n(EAC)",
           popconfirm: {
             title: "完工成本預估值(Estimate At Completion, EAC)",
-            description: "= BAC / CPI",
+            description: (
+              <div>
+                = 實際單位成本 * 完工總進度
+                <br />
+                = AC + ETC
+                <br />
+                = BAC / CPI
+                <br />
+              </div>
+            ),
           },
         };
       case "estimateToCompletion":
@@ -124,7 +133,14 @@ class TableUtils {
           name: "未完工成本預估值\n(ETC)",
           popconfirm: {
             title: "未完工成本預估值(Estimate To Completion, ETC)",
-            description: "= EAC - AC",
+            description: (
+              <div>
+                = 實際單位成本 * 未完成進度
+                <br />
+                = EAC - AC
+                <br />
+              </div>
+            ),
           },
         };
       case "varianceAtCompletion":
@@ -149,6 +165,22 @@ class TableUtils {
           popconfirm: {
             title: "剩餘的工作價值",
             description: "= BAC - EV",
+          },
+        };
+      case "estimatedTotalConstructionPeriod":
+        return {
+          name: "預期總工期",
+          popconfirm: {
+            title: "預期總工期",
+            description: "= 計畫完工總天數 / SPI",
+          },
+        };
+      case "lateConstructionPeriod":
+        return {
+          name: "後期工期",
+          popconfirm: {
+            title: "後期工期",
+            description: "= 計畫未完工天數 / SPI",
           },
         };
       default:
