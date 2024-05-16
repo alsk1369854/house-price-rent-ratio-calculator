@@ -9,7 +9,7 @@ class FormatterUtils {
         return format.format(value);
       },
       parser: (value: string): number => {
-        return Number.parseInt(value.replace(/\s?|,/g, ""));
+        return +value.replace(/,/g, "");
       },
     };
   }
